@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <html xmlns:th="http//www.thymeleaf.org">
+        <!-- http://localhost:8080/request/get -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Site com Thymeleaf</title>
+
+    <!-- Referenciando o CSS com Thymeleaf -->
+    <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" media="all">
+</head>
+<body>
+<div class="login" >
+<div class="container1">
+    <h2>Login</h2>
+    <form action="#" method="POST">
+        <label for="username">Usuário:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Senha:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit">Entrar</button>
+    </form>
+
+    <div>
+        <a id="forgot" href="#">Esqueceu a senha?</a>
+    </div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,79 @@
+/* style.css */
+body {
+    background-color: white;
+    font-family: Arial, sans-serif;
+}
+
+h2 {
+    color: black;
+    text-align: center;
+}
+
+p {
+    color: rgb(48, 48, 48);
+    font-size: 18px;
+    text-align: center;
+}
+
+body {
+    background-image: url('../img/one-punch-man-saitama-epic-desktop-wallpaper-cover.jpg');
+    background-repeat: no-repeat;
+    background-size: cover; /* Faz com que a imagem cubra toda a área da tela */
+    background-position: center center; /* Centraliza a imagem no meio da tela */
+    font-family: Arial, sans-serif;
+}
+
+.login{
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container1 {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="text"], input[type="password"] {
+    padding: 8px;
+    margin: 10px 0px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+a {
+    text-align: center;
+    display: block;
+    margin-top: 10px;
+}
+
+#forgot{
+    color: gray;
+    text-decoration: none;
+}

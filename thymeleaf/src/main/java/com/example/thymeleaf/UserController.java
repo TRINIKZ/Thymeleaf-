@@ -26,18 +26,41 @@ public class UserController {
         return "login";
     }
 
-    @PostMapping("/login")
-    public String doLogin(@ModelAttribute UserModel user, Model model) {
-        Optional<UserModel> usuario = userRepository.findByEmail(user.getEmail());
+@PostMapping("/login")
+public String doLogin(@ModelAttribute UserModel user, Model model) {
+    Optional<UserModel> usuario = userRepository.findByEmail(user.getEmail());
 
-        if (usuario.isPresent() && usuario.get().getPassword().equals(user.getPassword())) {
-            model.addAttribute("users", userRepository.findAll());
-            return "usuarios";
-        } else {
-            model.addAttribute("error", "E-mail ou senha inválidos");
-            return "login";
-        }
+    if (usuario.isPresent() && usuario.get().getPassword().equals(user.getPassword())) {
+        model.addAttribute("users", userRepository.findAll());
+        return "usuarios";
+    } else {
+        model.addAttribute("error", "E-mail ou senha inválidos");
+        model.addAttribute("user", user); // ← Isso evita o erro do campo th:field
+        return "login";
     }
+}
+
+@GetMapping("/cadastro")
+public String showCadastroForm(Model model) {
+    model.addAttribute("user", new UserModel());
+    return "cadastro";
+}
+
+@PostMapping("/cadastro")
+public String processCadastro(@ModelAttribute UserModel user, Model model) {
+    Optional<UserModel> existente = userRepository.findByEmail(user.getEmail());
+
+    if (existente.isPresent()) {
+        model.addAttribute("error", "E-mail já cadastrado");
+        model.addAttribute("user", user);
+        return "cadastro";
+    }
+
+    userRepository.save(user);
+    model.addAttribute("success", "Cadastro realizado com sucesso");
+    return "redirect:/login";
+}
+
 
     @GetMapping("/usuarios")
     public String showUsuarios(Model model) {

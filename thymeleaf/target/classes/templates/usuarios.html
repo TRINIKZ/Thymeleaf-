@@ -1,10 +1,33 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <meta charset="UTF-8" />
     <title>Usuários</title>
+    <link rel="stylesheet" th:href="@{/css/style2.css}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 <body>
-    <h1>Bem-vindo!</h1>
-    <p>Você está logado com sucesso.</p>
+    <h1>Lista de Usuários</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="user : ${users}">
+                <td data-label="ID" th:text="${user.id}"></td>
+                <td data-label="Nome" th:text="${user.name}"></td>
+                <td data-label="Email" th:text="${user.email}"></td>
+                <td data-label="Ações">
+                    <a th:href="@{'/editar/' + ${user.id}}">Editar</a>
+                    <a th:href="@{'/excluir/' + ${user.id}}">Excluir</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>

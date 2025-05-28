@@ -1,0 +1,108 @@
+/* Geral da página */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    margin: 40px;
+    color: #333;
+}
+
+/* Título */
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #222;
+}
+
+/* Estilizando a tabela */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Cabeçalho */
+thead tr {
+    background-color: #4CAF50;
+    color: white;
+    text-align: left;
+}
+
+thead th {
+    padding: 12px 15px;
+}
+
+/* Linhas do corpo */
+tbody tr {
+    border-bottom: 1px solid #ddd;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Células da tabela */
+td {
+    padding: 12px 15px;
+}
+
+/* Links de ação */
+a {
+    text-decoration: none;
+    margin-right: 10px;
+    font-weight: 600;
+    color: #2196F3;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #0b7dda;
+}
+
+/* Link Excluir com cor diferente */
+a[href*="/excluir/"] {
+    color: #e53935;
+}
+
+a[href*="/excluir/"]:hover {
+    color: #ab1e1e;
+}
+
+/* Responsividade simples */
+@media (max-width: 600px) {
+    body {
+        margin: 20px;
+    }
+
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    thead tr {
+        display: none;
+    }
+
+    tbody tr {
+        margin-bottom: 15px;
+        background-color: #fff;
+        padding: 15px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    tbody td {
+        padding: 10px 0;
+        text-align: right;
+        position: relative;
+    }
+
+    tbody td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 0.75em;
+        color: #666;
+        text-align: left;
+    }
+}
